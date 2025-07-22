@@ -1,0 +1,33 @@
+@use "../../../../app/common/assets/define/variables.scss" as *;
+
+.navbar-container {
+  background-color: $navbar-color;
+  height: 40px;
+  .row {
+    height: 100%;
+    .navbar-list {
+      height: 100%;
+      align-items: center;
+      .navbar-item {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        padding: 0 6px;
+        margin: 0 6px;
+        height: 100%;
+        font-weight: 500;
+        &:hover {
+          background-color: $navbar-hover-color;
+        }
+        &:last-child {
+          margin-left: auto;
+        }
+        .navbar-item-link {
+          color: $white-color;
+          text-decoration: none;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}

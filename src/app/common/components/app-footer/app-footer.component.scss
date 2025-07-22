@@ -1,0 +1,27 @@
+@use "../../../../app/common/assets/define/variables.scss" as *;
+
+.footer-container {
+  background-color: $navbar-color;
+  color: $white-color;
+  padding: 1rem 0;
+  .logo-container {
+    .logo {
+      margin-left: 12px;
+    }
+  }
+  .info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    .info-logo {
+      margin-bottom: 0.8rem;
+      font-size: 16px;
+    }
+  }
+
+  .sign-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}

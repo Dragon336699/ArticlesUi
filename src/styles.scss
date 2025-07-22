@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@use "./app/common/assets/base/common.scss";
+@use "./app/common/assets/define/variables.scss";
+
+// Import boostrap
+@import "../node_modules/bootstrap/dist/css/bootstrap-grid.css";
+@import "../node_modules/bootstrap/dist/css/bootstrap-utilities.css";
+@import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
+
+
+// Import font
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
