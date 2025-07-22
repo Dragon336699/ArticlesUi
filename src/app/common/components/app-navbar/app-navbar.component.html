@@ -1,32 +1,104 @@
 <div class="navbar-container">
-    <div class="row">
-        <div class="col col-lg-8 col-md-8 col-sm-8 offset-2 offset-lg-2 offset-md-2">
-            <ul class="navbar-list flex">
-                <li class="navbar-item">
-                    <a class="navbar-item-link" href=""> <i class="fa-solid fa-house"></i> Trang chủ</a>
-                </li>
-                <li class="navbar-item">
-                    <a class="navbar-item-link" href="">Sự kiện</a>
-                </li>
-                <li class="navbar-item">
-                    <a class="navbar-item-link" href="">Tiếp thị</a>
-                </li>
-                <li class="navbar-item">
-                    <a class="navbar-item-link" href="">Kinh tế</a>
-                </li>
-                <li class="navbar-item">
-                    <a class="navbar-item-link" href="">Luật pháp</a>
-                </li>
-                <li class="navbar-item">
-                    <a class="navbar-item-link" href="">Video</a>
-                </li>
-                <li class="navbar-item">
-                    <i class="fa-solid fa-magnifying-glass white"></i>
-                </li>
-                <li class="navbar-item">
-                    <i class="fa-solid fa-bars white"></i>
-                </li>
-            </ul>
-        </div>
+  <div class="row">
+    <div
+      class="col col-lg-8 col-md-8 col-sm-8 offset-2 offset-lg-2 offset-md-2"
+    >
+      <ul class="navbar-list flex">
+        <li class="navbar-item">
+          <a class="navbar-item-link" href="">
+            <i class="fa-solid fa-house"></i> Trang chủ</a
+          >
+        </li>
+        <li class="navbar-item">
+          <a class="navbar-item-link" href="">Sự kiện</a>
+        </li>
+        <li class="navbar-item">
+          <a class="navbar-item-link" href="">Tiếp thị</a>
+        </li>
+        <li class="navbar-item">
+          <a class="navbar-item-link" href="">Kinh tế</a>
+        </li>
+        <li class="navbar-item">
+          <a class="navbar-item-link" href="">Luật pháp</a>
+        </li>
+        <li class="navbar-item">
+          <a class="navbar-item-link" href="">Video</a>
+        </li>
+        <li class="navbar-item">
+          <i class="fa-solid fa-magnifying-glass white"></i>
+        </li>
+        @if (!isMenuOpen) {
+        <li class="navbar-item" (click)="isMenuOpen = !isMenuOpen">
+          <i class="fa-solid fa-bars white"></i>
+        </li>
+        } @else {
+        <li class="navbar-item" (click)="isMenuOpen = !isMenuOpen">
+          <i class="fa-solid fa-x white"></i>
+        </li>
+        }
+      </ul>
     </div>
+  </div>
+  @if (isMenuOpen) {
+  <div class="row sec-row">
+    <div
+      class="col col-lg-8 col-md-8 col-sm-8 offset-2 offset-lg-2 offset-md-2"
+    >
+      <div class="navbar-menu-container">
+        <ul class="navbar-menu-list flex">
+          <li class="navbar-menu-item">
+            <h4 class="category">Sự kiện</h4>
+            <p class="sub-category">Chính trị - Xã hội</p>
+            <p class="sub-category">Cải cách hành chính</p>
+            <p class="sub-category">Tiêu điểm</p>
+            <p class="sub-category">Tin địa phương</p>
+          </li>
+          <li class="navbar-menu-item">
+            <h4 class="category">Doanh Nghiệp</h4>
+            <p class="sub-category">Diễn đàn</p>
+            <p class="sub-category">Thương hiệu</p>
+            <p class="sub-category">Thông tin thương hiệu</p>
+            <p class="sub-category">Trách nhiệm xã hội</p>
+          </li>
+          <li class="navbar-menu-item">
+            <h4 class="category">Sự kiện</h4>
+            <p class="sub-category">Chính trị - Xã hội</p>
+            <p class="sub-category">Chính trị - Xã hội</p>
+            <p class="sub-category">Chính trị - Xã hội</p>
+            <p class="sub-category">Chính trị - Xã hội</p>
+          </li>
+          <li class="navbar-menu-item">
+            <h4 class="category">Sự kiện</h4>
+            <p class="sub-category">Chính trị - Xã hội</p>
+            <p class="sub-category">Chính trị - Xã hội</p>
+            <p class="sub-category">Chính trị - Xã hội</p>
+            <p class="sub-category">Chính trị - Xã hội</p>
+          </li>
+          <li class="navbar-menu-item">
+            <h4 class="category">Sự kiện</h4>
+            <p class="sub-category">Chính trị - Xã hội</p>
+            <p class="sub-category">Chính trị - Xã hội</p>
+            <p class="sub-category">Chính trị - Xã hội</p>
+            <p class="sub-category">Chính trị - Xã hội</p>
+          </li>
+          <li class="navbar-menu-item">
+            <h4 class="category">Sự kiện</h4>
+            <p class="sub-category">Chính trị - Xã hội</p>
+            <p class="sub-category">Chính trị - Xã hội</p>
+            <p class="sub-category">Chính trị - Xã hội</p>
+            <p class="sub-category">Chính trị - Xã hội</p>
+          </li>
+        </ul>
+        <div class="horizontal-line"></div>
+        <ul class="side-category-list flex">
+            <li class="side-category-item"><i class="fa-solid fa-circle-play"></i> Video</li>
+            <li class="side-category-item"><i class="fa-solid fa-image"></i> Ảnh</li>
+            <li class="side-category-item"><i class="fa-solid fa-chart-simple"></i> Infographic</li>
+            <li class="side-category-item"><i class="fa-solid fa-file-invoice"></i> Emagazine</li>
+            <li class="side-category-item"><i class="fa-solid fa-newspaper"></i> Tạp chí in</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  }
 </div>
