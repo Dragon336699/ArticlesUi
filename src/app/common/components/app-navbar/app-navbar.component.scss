@@ -3,6 +3,7 @@
 .navbar-container {
   background-color: $navbar-color;
   height: 40px;
+  width: 100%;
   .row {
     height: 100%;
     .navbar-list {
@@ -78,3 +79,56 @@
     }
   }
 }
+
+// Responsive styles
+
+@media (min-width: 1024px) {
+  .navbar-container {
+    .row {
+      .col-small-screen {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .navbar-container {
+    height: 80px;
+    .row {
+      .col-small-screen {
+        display: none;
+      }
+      .navbar-list {
+        .navbar-item {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 0) and (max-width: 767px) {
+  .navbar-container {
+    height: 40px;
+    .row {
+      .col-large-screen {
+        display: none;
+      }
+      .col-small-screen {
+        .function-container {
+          height: 100%;
+          align-items: center;
+          .vertical-line {
+            height: 20px;
+            width: 1px;
+            background-color: $white-color;
+            margin: 0 8px;
+            border-left: 1px solid $white-color;
+          }
+        }
+      }
+    }
+  }
+}
+

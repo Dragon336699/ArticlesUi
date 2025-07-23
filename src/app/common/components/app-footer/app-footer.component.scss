@@ -25,3 +25,62 @@
     justify-content: center;
   }
 }
+
+//Responsive styles
+@media (min-width: 1025px) {
+  .small-screen-name {
+    display: none;
+  }
+  
+  .small-info-container {
+    display: none;
+  }
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .small-screen-name {
+    display: none;
+  }
+  
+  .small-info-container {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer-container {
+    margin: 0 32px;
+    color: $black-color;
+    background-color: $white-color;
+    .row {
+      flex-direction: column;
+      gap: 1rem;
+      .logo {
+        margin: 0;
+      }
+
+      .info-container {
+        display: none;
+      }
+
+      .sign-container {
+        display: none;
+      }
+
+      .small-info-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        span {
+          font-size: 13px;
+          color: $sign-color;
+        }
+
+        .sign-text {
+          color: $sign-color;
+        }
+      }
+    }
+  }
+}
