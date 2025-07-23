@@ -5,6 +5,7 @@
   height: 40px;
   width: 100%;
   .row {
+    position: relative;
     height: 100%;
     .navbar-list {
       height: 100%;
@@ -35,10 +36,13 @@
 
   .sec-row {
     z-index: 1000;
+      position: absolute;
+      top: 40px;
+      left: 0;
+      right: 0;
     .navbar-menu-container {
       background-color: $white-color;
       z-index: 1000;
-      position: relative;
       padding: 1rem 0.8rem;
       .navbar-menu-list {
         gap: 2rem;
