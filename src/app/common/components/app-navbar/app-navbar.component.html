@@ -9,18 +9,11 @@
             <i class="fa-solid fa-house"></i> Trang chủ</a
           >
         </li>
+        @for (category of categories; track $index) {
         <li class="navbar-item">
-          <a class="navbar-item-link" href="">Sự kiện</a>
+          <a href="" class="navbar-item-link">{{ category.categoryName }}</a>
         </li>
-        <li class="navbar-item">
-          <a class="navbar-item-link" href="">Tiếp thị</a>
-        </li>
-        <li class="navbar-item">
-          <a class="navbar-item-link" href="">Kinh tế</a>
-        </li>
-        <li class="navbar-item">
-          <a class="navbar-item-link" href="">Luật pháp</a>
-        </li>
+        }
         <li class="navbar-item">
           <a class="navbar-item-link" href="">Video</a>
         </li>
@@ -47,10 +40,13 @@
 
     <div class="col-2 offset-3 col-small-screen">
       <div class="function-container flex">
-        <i class="fa-solid fa-magnifying-glass white" ></i>
+        <i class="fa-solid fa-magnifying-glass white"></i>
         <div class="vertical-line"></div>
         @if (!isMenuOpen) {
-        <i class="fa-solid fa-bars white" (click)="isMenuOpen = !isMenuOpen"></i>
+        <i
+          class="fa-solid fa-bars white"
+          (click)="isMenuOpen = !isMenuOpen"
+        ></i>
         } @else {
         <i class="fa-solid fa-x white" (click)="isMenuOpen = !isMenuOpen"></i>
         }
@@ -63,48 +59,14 @@
       >
         <div class="navbar-menu-container">
           <ul class="navbar-menu-list flex">
+            @for (category of categories; track $index) {
             <li class="navbar-menu-item">
-              <h4 class="category">Sự kiện</h4>
-              <p class="sub-category">Chính trị - Xã hội</p>
-              <p class="sub-category">Cải cách hành chính</p>
-              <p class="sub-category">Tiêu điểm</p>
-              <p class="sub-category">Tin địa phương</p>
+              <h4 class="category">{{ category.categoryName }}</h4>
+              @for (subCategory of category.subCategories; track $index) {
+              <p class="sub-category">{{subCategory.subCategoryName}}</p>
+              }
             </li>
-            <li class="navbar-menu-item">
-              <h4 class="category">Doanh Nghiệp</h4>
-              <p class="sub-category">Diễn đàn</p>
-              <p class="sub-category">Thương hiệu</p>
-              <p class="sub-category">Thông tin thương hiệu</p>
-              <p class="sub-category">Trách nhiệm xã hội</p>
-            </li>
-            <li class="navbar-menu-item">
-              <h4 class="category">Sự kiện</h4>
-              <p class="sub-category">Chính trị - Xã hội</p>
-              <p class="sub-category">Chính trị - Xã hội</p>
-              <p class="sub-category">Chính trị - Xã hội</p>
-              <p class="sub-category">Chính trị - Xã hội</p>
-            </li>
-            <li class="navbar-menu-item">
-              <h4 class="category">Sự kiện</h4>
-              <p class="sub-category">Chính trị - Xã hội</p>
-              <p class="sub-category">Chính trị - Xã hội</p>
-              <p class="sub-category">Chính trị - Xã hội</p>
-              <p class="sub-category">Chính trị - Xã hội</p>
-            </li>
-            <li class="navbar-menu-item">
-              <h4 class="category">Sự kiện</h4>
-              <p class="sub-category">Chính trị - Xã hội</p>
-              <p class="sub-category">Chính trị - Xã hội</p>
-              <p class="sub-category">Chính trị - Xã hội</p>
-              <p class="sub-category">Chính trị - Xã hội</p>
-            </li>
-            <li class="navbar-menu-item">
-              <h4 class="category">Sự kiện</h4>
-              <p class="sub-category">Chính trị - Xã hội</p>
-              <p class="sub-category">Chính trị - Xã hội</p>
-              <p class="sub-category">Chính trị - Xã hội</p>
-              <p class="sub-category">Chính trị - Xã hội</p>
-            </li>
+            }
           </ul>
           <div class="horizontal-line"></div>
           <ul class="side-category-list flex">

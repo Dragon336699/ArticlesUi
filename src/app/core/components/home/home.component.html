@@ -5,78 +5,50 @@
         class="col-2 col-lg-2 col-md-3 offset-2 offset-lg-2 offset-md-1 h-100 first-feature-col"
       >
         <ul class="feature-articles-list">
+          @for(article of articles; track $index) { @if ($index < 4) {
           <li class="feature-articles-item">
-            <p class="feature-articles-category">Doanh nghiệp</p>
+            <p class="feature-articles-category">
+              {{ article.categories[0].categoryName }}
+            </p>
             <h5 class="feature-articles-title">
-              T&T Group và Hành trình yêu thương: Khi niềm tin được sẻ chia thì
-              hạnh phúc được nhân lên
+              {{ article.title }}
             </h5>
           </li>
-          <li class="feature-articles-item">
-            <p class="feature-articles-category">Kinh tế</p>
-            <h5 class="feature-articles-title">
-              T&T Group và Hành trình yêu thương: Khi niềm tin được sẻ chia thì
-              hạnh phúc được nhân lên
-            </h5>
-          </li>
-          <li class="feature-articles-item">
-            <p class="feature-articles-category">Xã hội</p>
-            <h5 class="feature-articles-title">
-              T&T Group và Hành trình yêu thương: Khi niềm tin được sẻ chia thì
-              hạnh phúc được nhân lên
-            </h5>
-          </li>
-          <li class="feature-articles-item">
-            <p class="feature-articles-category">Pháp luật</p>
-            <h5 class="feature-articles-title">
-              T&T Group và Hành trình yêu thương: Khi niềm tin được sẻ chia thì
-              hạnh phúc được nhân lên
-            </h5>
-          </li>
+          } }
         </ul>
       </div>
       <div class="col-4 col-lg-4 col-md-4 h-100 sec-feature-col">
+        @for (article of articles; track $index) { @if ($index === 4) {
         <img
           class="feature-articles-middle__image"
-          src="https://png.pngtree.com/png-clipart/20190705/original/pngtree-vector-creative-hot-news-banner-png-image_4275281.jpg"
+          [src]="article.articleImages[0].imageUrl"
           alt="Image"
         />
-        <p class="feature-articles-category">Xã hội</p>
+        <p class="feature-articles-category">
+          {{ article.categories[0].categoryName }}
+        </p>
         <h4 class="feature-articles-title">
-          Hà Nội thúc đẩy quan hệ thương mại đầu tư với Nhật Bản trong điều kiện
-          "bình thường mới"
+          {{ article.title }}
         </h4>
+        } }
       </div>
       <div class="col-2 col-lg-2 col-md-3 h-100 third-feature-col">
         <ul class="feature-articles-list">
+          @for(article of articles; track $index) { @if ($index > 4) {
           <li class="feature-articles-item">
             <h5 class="feature-articles-title">
-              Hà Nội thúc đẩy quan hệ thương mại đầu tư với Nhật Bản trong điều
-              kiện "bình thường mới"
+              {{ article.title }}
             </h5>
             <div class="content-container">
               <img
                 class="feature-articles-image"
-                src="https://png.pngtree.com/png-clipart/20190705/original/pngtree-vector-creative-hot-news-banner-png-image_4275281.jpg"
+                [src]="article.articleImages[0].imageUrl"
                 alt="Image"
               />
-              <p class="feature-articles-category">Kinh tế</p>
+              <p class="feature-articles-category">{{article.categories[0].categoryName}}</p>
             </div>
           </li>
-          <li class="feature-articles-item">
-            <h5 class="feature-articles-title">
-              Hà Nội triển khai một số nhiệm vụ tài chính - ngân sách trong điều
-              kiện ảnh hưởng của dịch bệnh Covid-19
-            </h5>
-            <div class="content-container">
-              <img
-                class="feature-articles-image"
-                src="https://png.pngtree.com/png-clipart/20190705/original/pngtree-vector-creative-hot-news-banner-png-image_4275281.jpg"
-                alt="Image"
-              />
-              <p class="feature-articles-category">Pháp luật</p>
-            </div>
-          </li>
+          } }
         </ul>
       </div>
     </div>
@@ -256,7 +228,9 @@
           />
           <div class="articles-item-footer">
             <p class="articles-item-category">Kinh tế</p>
-            <p class="articles-item-share"><i class="fa-brands fa-facebook-f"></i> Chia sẻ</p>
+            <p class="articles-item-share">
+              <i class="fa-brands fa-facebook-f"></i> Chia sẻ
+            </p>
           </div>
         </li>
       </ul>

@@ -36,10 +36,11 @@
 
   .sec-row {
     z-index: 1000;
-      position: absolute;
-      top: 40px;
-      left: 0;
-      right: 0;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    user-select: none;
     .navbar-menu-container {
       background-color: $white-color;
       z-index: 1000;
@@ -135,4 +136,3 @@
     }
   }
 }
-
