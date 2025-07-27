@@ -5,7 +5,7 @@
         class="col-2 col-lg-2 col-md-3 offset-2 offset-lg-2 offset-md-1 h-100 first-feature-col"
       >
         <ul class="feature-articles-list">
-          @for(article of articles; track $index) { @if ($index < 4) {
+          @for(article of highlightArticles; track $index) { @if ($index < 4) {
           <li class="feature-articles-item">
             <p class="feature-articles-category">
               {{ article.categories[0].categoryName }}
@@ -18,7 +18,7 @@
         </ul>
       </div>
       <div class="col-4 col-lg-4 col-md-4 h-100 sec-feature-col">
-        @for (article of articles; track $index) { @if ($index === 4) {
+        @for (article of highlightArticles; track $index) { @if ($index === 4) {
         <img
           class="feature-articles-middle__image"
           [src]="article.articleImages[0].imageUrl"
@@ -30,11 +30,12 @@
         <h4 class="feature-articles-title">
           {{ article.title }}
         </h4>
+        <p class="feature-articles-content">{{ article.content }}</p>
         } }
       </div>
       <div class="col-2 col-lg-2 col-md-3 h-100 third-feature-col">
         <ul class="feature-articles-list">
-          @for(article of articles; track $index) { @if ($index > 4) {
+          @for(article of highlightArticles; track $index) { @if ($index > 4) {
           <li class="feature-articles-item">
             <h5 class="feature-articles-title">
               {{ article.title }}
@@ -45,7 +46,12 @@
                 [src]="article.articleImages[0].imageUrl"
                 alt="Image"
               />
-              <p class="feature-articles-category">{{article.categories[0].categoryName}}</p>
+              <div class="category-and-content-container">
+                <p class="feature-articles-category">
+                  {{ article.categories[0].categoryName }}
+                </p>
+                <p class="feature-articles-content">{{ article.content }}</p>
+              </div>
             </div>
           </li>
           } }
@@ -56,76 +62,23 @@
     <div class="row small-screen-row">
       <div class="col-12">
         <ul class="feature-articles-list">
+          @for (article of highlightArticles; track $index) {
           <li class="feature-articles-item first-item">
             <img
               class="feature-articles__image"
-              src="https://png.pngtree.com/png-clipart/20190705/original/pngtree-vector-creative-hot-news-banner-png-image_4275281.jpg"
+              [src]="article.articleImages[0].imageUrl"
               alt="Image"
             />
             <div class="feature-articles-info">
               <h5 class="feature-articles-title">
-                Hà Nội triển khai một số nhiệm vụ tài chính - ngân sách trong
-                điều kiện ảnh hưởng của dịch bệnh Covid-19
+                {{ article.title }}
               </h5>
-              <p class="feature-articles-category">Pháp luật</p>
+              <p class="feature-articles-category">
+                {{ article.categories[0].categoryName }}
+              </p>
             </div>
           </li>
-          <li class="feature-articles-item">
-            <div class="feature-articles-info">
-              <p class="feature-articles-category">Pháp luật</p>
-              <h5 class="feature-articles-title">
-                Hà Nội triển khai một số nhiệm vụ tài chính - ngân sách trong
-                điều kiện ảnh hưởng của dịch bệnh Covid-19
-              </h5>
-            </div>
-            <img
-              class="feature-articles__image"
-              src="https://png.pngtree.com/png-clipart/20190705/original/pngtree-vector-creative-hot-news-banner-png-image_4275281.jpg"
-              alt="Image"
-            />
-          </li>
-          <li class="feature-articles-item">
-            <div class="feature-articles-info">
-              <p class="feature-articles-category">Pháp luật</p>
-              <h5 class="feature-articles-title">
-                Hà Nội triển khai một số nhiệm vụ tài chính - ngân sách trong
-                điều kiện ảnh hưởng của dịch bệnh Covid-19
-              </h5>
-            </div>
-            <img
-              class="feature-articles__image"
-              src="https://png.pngtree.com/png-clipart/20190705/original/pngtree-vector-creative-hot-news-banner-png-image_4275281.jpg"
-              alt="Image"
-            />
-          </li>
-          <li class="feature-articles-item">
-            <div class="feature-articles-info">
-              <p class="feature-articles-category">Pháp luật</p>
-              <h5 class="feature-articles-title">
-                Hà Nội triển khai một số nhiệm vụ tài chính - ngân sách trong
-                điều kiện ảnh hưởng của dịch bệnh Covid-19
-              </h5>
-            </div>
-            <img
-              class="feature-articles__image"
-              src="https://png.pngtree.com/png-clipart/20190705/original/pngtree-vector-creative-hot-news-banner-png-image_4275281.jpg"
-              alt="Image"
-            />
-          </li>
-          <li class="feature-articles-item">
-            <div class="feature-articles-info">
-              <p class="feature-articles-category">Pháp luật</p>
-              <h5 class="feature-articles-title">
-                Hà Nội triển khai một số nhiệm vụ tài chính - ngân sách trong
-                điều kiện ảnh hưởng của dịch bệnh Covid-19
-              </h5>
-            </div>
-            <img
-              class="feature-articles__image"
-              src="https://png.pngtree.com/png-clipart/20190705/original/pngtree-vector-creative-hot-news-banner-png-image_4275281.jpg"
-              alt="Image"
-            />
-          </li>
+          }
         </ul>
       </div>
     </div>
@@ -134,109 +87,54 @@
   <div class="articles-list-container">
     <div class="col col-12 col-lg-6 col-md-6 offset-0 offset-lg-2 offset-md-2">
       <ul class="articles-list articles-list-large-screen flex">
+        @for (article of homeListArticles; track $index) {
         <li class="articles-item">
           <img
-            src="https://png.pngtree.com/png-clipart/20190705/original/pngtree-vector-creative-hot-news-banner-png-image_4275281.jpg"
+            [src]="article.articleImages[0].imageUrl"
             alt=""
             class="articles-item__image"
           />
           <div class="articles-item-info">
             <h4 class="articles-item-title">
-              Doanh nghiệp bất động sản ảnh hưởng ra sao bởi dịch Covid 19?
+              {{ article.title }}
             </h4>
-            <p class="articles-item-category">Kinh tế</p>
+            <p class="articles-item-category">
+              {{ article.categories[0].categoryName }}
+            </p>
             <p class="articles-item-content">
-              Đêm ngày 6/3, Ban chỉ đạo phòng chống dịch Covid-19 Hà Nội triệu
-              tập cuộc họp khẩn cấp trong đêm để thông tin về sự việc liên quan
-              đến dịch Covid-19. Cuộc họp đã công bố xác nhận thêm
+              {{ article.content }}
             </p>
           </div>
         </li>
-        <li class="articles-item">
-          <img
-            src="https://png.pngtree.com/png-clipart/20190705/original/pngtree-vector-creative-hot-news-banner-png-image_4275281.jpg"
-            alt=""
-            class="articles-item__image"
-          />
-          <div class="articles-item-info">
-            <h4 class="articles-item-title">
-              Có 1 tỷ đồng nên đầu tư vào phân khúc BĐS nào để sinh lời nhanh
-              chóng?
-            </h4>
-            <p class="articles-item-category">Kinh tế</p>
-            <p class="articles-item-content">
-              Đêm ngày 6/3, Ban chỉ đạo phòng chống dịch Covid-19 Hà Nội triệu
-              tập cuộc họp khẩn cấp trong đêm để thông tin về sự việc liên quan
-              đến dịch Covid-19. Cuộc họp đã công bố xác nhận thêm
-            </p>
-          </div>
-        </li>
-        <li class="articles-item">
-          <img
-            src="https://png.pngtree.com/png-clipart/20190705/original/pngtree-vector-creative-hot-news-banner-png-image_4275281.jpg"
-            alt=""
-            class="articles-item__image"
-          />
-          <div class="articles-item-info">
-            <h4 class="articles-item-title">
-              Giảm 50% phí trước bạ ô tô: Xe sang có giá lăn bánh giảm "khủng"
-            </h4>
-            <p class="articles-item-category">Kinh tế</p>
-            <p class="articles-item-content">
-              Đêm ngày 6/3, Ban chỉ đạo phòng chống dịch Covid-19 Hà Nội triệu
-              tập cuộc họp khẩn cấp trong đêm để thông tin về sự việc liên quan
-              đến dịch Covid-19. Cuộc họp đã công bố xác nhận thêm
-            </p>
-          </div>
-        </li>
-        <li class="articles-item">
-          <img
-            src="https://png.pngtree.com/png-clipart/20190705/original/pngtree-vector-creative-hot-news-banner-png-image_4275281.jpg"
-            alt=""
-            class="articles-item__image"
-          />
-          <div class="articles-item-info">
-            <h4 class="articles-item-title">
-              Có 1 tỷ đồng nên đầu tư vào phân khúc BĐS nào để sinh lời nhanh
-              chóng?
-            </h4>
-            <p class="articles-item-category">Kinh tế</p>
-            <p class="articles-item-content">
-              Đêm ngày 6/3, Ban chỉ đạo phòng chống dịch Covid-19 Hà Nội triệu
-              tập cuộc họp khẩn cấp trong đêm để thông tin về sự việc liên quan
-              đến dịch Covid-19. Cuộc họp đã công bố xác nhận thêm
-            </p>
-          </div>
-        </li>
+        }
       </ul>
 
       <ul class="articles-list articles-list-small-screen flex">
+        @for(article of homeListArticles; track $index) {
         <li class="articles-item">
           <h4 class="articles-item-title">
-            Có 1 tỷ đồng nên đầu tư vào phân khúc BĐS nào để sinh lời nhanh
-            chóng?
+            {{ article.title }}
           </h4>
           <p class="articles-item-content">
-            Đêm ngày 6/3, Ban chỉ đạo phòng chống dịch Covid-19 Hà Nội triệu tập
-            cuộc họp khẩn cấp trong đêm để thông tin về sự việc liên quan đến
-            dịch Covid-19. Cuộc họp đã công bố xác nhận thêm
+            {{ article.content }}
           </p>
           <img
-            src="https://png.pngtree.com/png-clipart/20190705/original/pngtree-vector-creative-hot-news-banner-png-image_4275281.jpg"
+            [src]="article.articleImages[0].imageUrl"
             alt=""
             class="articles-item__image"
           />
           <div class="articles-item-footer">
-            <p class="articles-item-category">Kinh tế</p>
+            <p class="articles-item-category">{{article.categories[0].categoryName}}</p>
             <p class="articles-item-share">
               <i class="fa-brands fa-facebook-f"></i> Chia sẻ
             </p>
           </div>
         </li>
+        }
       </ul>
 
       <div class="button-container">
-        <button class="button">
+        <button (click)="getMoreHomeListArticles()" class="button">
           Xem thêm <i class="fa-solid fa-angle-down"></i>
         </button>
       </div>

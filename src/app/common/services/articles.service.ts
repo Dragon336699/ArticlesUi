@@ -14,4 +14,14 @@ export class ArticlesService {
   public getHighlightArticles() {
     return this.httpClient.get<ArticlesDto[]>(`${this.baseUrl}/highlight`);
   }
+
+  public getHomeListArticles(createdAt: Date | null) {
+    const params: any = {};
+
+    if (createdAt) {
+      params.createdAt = createdAt;
+    }
+
+    return this.httpClient.get<ArticlesDto[]>(`${this.baseUrl}/homeList`, { params});
+  }
 }

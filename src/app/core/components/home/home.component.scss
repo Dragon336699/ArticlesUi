@@ -29,7 +29,8 @@
           height: 50%;
         }
 
-        .feature-articles-title {
+        .feature-articles-content {
+          color: $content-text-color;
         }
       }
 
@@ -38,7 +39,7 @@
           height: 100%;
           display: flex;
           flex-direction: column;
-          justify-content: space-around;
+          justify-content: space-between;
           .feature-articles-item {
             .feature-articles-title {
               font-size: 14px;
@@ -52,6 +53,9 @@
               }
               .feature-aricles-category {
                 font-size: 0.7rem;
+              }
+              .feature-articles-content {
+                color: $content-text-color;
               }
             }
           }
@@ -81,6 +85,7 @@
           }
           .articles-item-content {
             font-size: 0.875rem;
+            color: $content-text-color;
           }
         }
       }

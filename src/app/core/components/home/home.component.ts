@@ -11,7 +11,8 @@ import { takeUntil, tap } from 'rxjs';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent extends BaseComponent implements OnInit {
-  public articles: ArticlesDto[] = [];
+  public highlightArticles: ArticlesDto[] = [];
+  public homeListArticles: ArticlesDto[] = [];
   constructor(
     private readonly articlesService: ArticlesService,
   ) {
@@ -21,7 +22,23 @@ export class HomeComponent extends BaseComponent implements OnInit {
   ngOnInit(): void {
     this.articlesService.getHighlightArticles().pipe(
       tap((articles: ArticlesDto[]) => {
-        this.articles = articles;
+        this.highlightArticles = articles;
+      }),
+      takeUntil(this.destroyed$)
+    ).subscribe();
+
+    this.articlesService.getHomeListArticles(null).pipe(
+      tap((articles: ArticlesDto[]) => {
+        this.homeListArticles = articles;
+      }),
+      takeUntil(this.destroyed$)
+    ).subscribe();
+  }
+
+  public getMoreHomeListArticles(): void {
+    this.articlesService.getHomeListArticles(this.homeListArticles[this.homeListArticles.length - 1].createdAt).pipe(
+      tap((articles: ArticlesDto[]) => {
+        this.homeListArticles = [...this.homeListArticles, ...articles];
       }),
       takeUntil(this.destroyed$)
     ).subscribe();
